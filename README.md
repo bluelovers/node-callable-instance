@@ -1,21 +1,26 @@
 # node-callable-instance
 
-[![Build Status](https://travis-ci.org/CGamesPlay/node-callable-instance.svg?branch=master)](https://travis-ci.org/CGamesPlay/node-callable-instance)
-
 This module allows you to create an ES6 class that is callable as a function. The invocation is sent to one of the object's normal prototype methods.
 
 ## Installation
 
 ```
-npm install callable-instance
+npm install callable-instance2
 ```
 
 ## Usage
 
 `ExampleClass` instances have all of the normal properties and methods, but are actually functions as well.
 
+```ts
+import CallableInstance from 'callable-instance2/import';
+import { CallableInstance } from 'callable-instance2/import';
+import CallableInstance = require('callable-instance2');
+const CallableInstance = require('callable-instance2');
 ```
-var CallableInstance = require('callable-instance');
+
+```ts
+import CallableInstance = require('callable-instance2');
 
 class ExampleClass extends CallableInstance {
   constructor() {
@@ -47,7 +52,7 @@ Libraries that accept functions will expect that they behave as Function objects
 
 This can also cause problems if your derived class wants to have a `name` or `length` property, which are built-in properties and not configurable by default. You can have your class disable the built-in descriptors of these properties to make them available for your use.
 
-```
+```ts
 var test = new ExampleClass();
 test.name = "hello!"
 console.log(test.name); // Will print 'instanceMethod'
